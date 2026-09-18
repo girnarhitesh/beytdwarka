@@ -1,4 +1,4 @@
-# https://sachin-bucketlistt.github.io/beytdwarka/
+# https://beytdwarka.vercel.app/
 User-agent: *
 Allow: /
 
@@ -8,4 +8,4 @@ Allow: /
 User-agent: Google-Extended
 Allow: /
 
-Sitemap: https://sachin-bucketlistt.github.io/beytdwarka/sitemap.xml
+Sitemap: https://beytdwarka.vercel.app/sitemap.xml

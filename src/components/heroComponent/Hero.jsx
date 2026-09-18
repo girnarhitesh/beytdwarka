@@ -20,7 +20,7 @@ const PHOTOS = {
   island: img('https://images.unsplash.com/photo-1558281050-4c33200099c7?q=80&w=2670&auto=format&fit=crop&ixlib=rb-4.1.0&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D'),
   harbour: img('https://images.unsplash.com/photo-1644647840725-5218072147b7?q=80&w=2148&auto=format&fit=crop&ixlib=rb-4.1.0&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D'),
   beach: img(`https://images.unsplash.com/photo-1661287416385-5c18354886ee?q=80&w=2670&auto=format&fit=crop&ixlib=rb-4.1.0&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D`),
-  temple: img('/Images/beytdwarka-hero-background-image.png'),
+  temple: img('Images/beytdwarka-hero-background-image.png'),
 }
 
 const TRIPS = [

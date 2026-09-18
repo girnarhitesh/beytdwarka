@@ -3,24 +3,7 @@
   "private": true,
   "version": "0.1.0",
   "description": "Website for Beyt Dwarka (Bet Dwarka), the sacred island of Lord Krishna in Gujarat.",
-  "homepage": "https://sachin-bucketlistt.github.io/beytdwarka/",
-  "license": "MIT",
-  "repository": {
-    "type": "git",
-    "url": "git+https://github.com/Sachin-bucketlistt/beytdwarka.git"
-  },
-  "bugs": {
-    "url": "https://github.com/Sachin-bucketlistt/beytdwarka/issues"
-  },
-  "keywords": [
-    "beyt-dwarka",
-    "bet-dwarka",
-    "dwarka",
-    "gujarat",
-    "tourism",
-    "vite",
-    "react"
-  ],
+  "homepage": "https://beytdwarka.vercel.app/",
   "type": "module",
   "scripts": {
     "dev": "vite",

@@ -1,4 +1,4 @@
-/** Canonical site settings used by Vite, GitHub Pages, and SEO files. */
+/** Site settings used by Vite and SEO files. */
 export const site = {
   name: 'Beyt Dwarka',
   shortName: 'Beyt Dwarka',
@@ -17,8 +17,8 @@ export const site = {
     'Gujarat tourism',
     'Devbhoomi Dwarka',
   ],
-  url: 'https://sachin-bucketlistt.github.io/beytdwarka',
-  base: '/beytdwarka/',
+  url: 'https://beytdwarka.vercel.app',
+  base: '/',
   locale: 'en_IN',
   language: 'en',
   themeColor: '#0e4d6c',
