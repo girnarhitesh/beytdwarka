@@ -7,7 +7,7 @@ import './Gallery.css'
 
 const EASE = [0.22, 1, 0.36, 1]
 
-const FRAMES = [
+export const FRAMES = [
   {
     id: 'shore',
     src: 'https://beytdwarka.com/assets/img/Home/gallery/DSC03900-min_11zon.webp',
@@ -125,8 +125,8 @@ function Gallery() {
           <p className="gallery__lead">
             Guests, tides and night fire — tap a picture and walk the set.
           </p>
-          <Button type="button" arrow size="sm" tone="on-light" onClick={() => setOpen(0)}>
-            See the frames
+          <Button href="/gallery" arrow size="sm" tone="on-light">
+            Open gallery
           </Button>
         </motion.div>
 
@@ -169,11 +169,11 @@ function Gallery() {
   )
 }
 
-function Lightbox({ index, onClose, onChange, reduced }) {
+export function Lightbox({ index, onClose, onChange, reduced, frames = FRAMES }) {
   const startX = useRef(0)
   const active = index != null
-  const frame = active ? FRAMES[index] : null
-  const total = FRAMES.length
+  const frame = active ? frames[index] : null
+  const total = frames.length
 
   const go = useCallback(
     (next) => {
@@ -203,14 +203,14 @@ function Lightbox({ index, onClose, onChange, reduced }) {
 
   useEffect(() => {
     if (!active) return undefined
-    const next = FRAMES[(index + 1) % total]
-    const prev = FRAMES[(index - 1 + total) % total]
+    const next = frames[(index + 1) % total]
+    const prev = frames[(index - 1 + total) % total]
     ;[next, prev].forEach((item) => {
       const image = new Image()
       image.src = item.src
     })
     return undefined
-  }, [active, index, total])
+  }, [active, frames, index, total])
 
   if (typeof document === 'undefined') return null
 
@@ -299,7 +299,7 @@ function Lightbox({ index, onClose, onChange, reduced }) {
           </div>
 
           <div className="lightbox__strip" role="tablist" aria-label="Photographs">
-            {FRAMES.map((item, itemIndex) => (
+            {frames.map((item, itemIndex) => (
               <button
                 key={item.id}
                 type="button"

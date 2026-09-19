@@ -68,6 +68,12 @@
   color: var(--exp-body);
 }
 
+.experiences__more {
+  display: flex;
+  justify-content: center;
+  padding-top: 4px;
+}
+
 .experiences__featured {
   display: grid;
   grid-template-columns: 1.12fr 0.88fr;

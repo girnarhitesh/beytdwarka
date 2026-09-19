@@ -1,3 +1,5 @@
+import { useEffect } from 'react'
+import { BrowserRouter, Route, Routes, useLocation } from 'react-router-dom'
 import AboutBeyt from './components/aboutBeytComponent/AboutBeyt.jsx'
 import Combos from './components/combosComponent/Combos.jsx'
 import Cta from './components/ctaComponent/Cta.jsx'
@@ -7,10 +9,29 @@ import Faq from './components/faqComponent/Faq.jsx'
 import Gallery from './components/galleryComponent/Gallery.jsx'
 import Hero from './components/heroComponent/Hero.jsx'
 import HowToReach from './components/howToReachComponent/HowToReach.jsx'
+import Nav from './components/navComponent/Nav.jsx'
 import Packages from './components/packagesComponent/Packages.jsx'
+import GalleryPage from './pages/GalleryPage.jsx'
 import './App.css'
 
-function App() {
+function ScrollToTop() {
+  const { pathname, hash } = useLocation()
+
+  useEffect(() => {
+    if (hash) {
+      const id = hash.slice(1)
+      requestAnimationFrame(() => {
+        document.getElementById(id)?.scrollIntoView()
+      })
+      return
+    }
+    window.scrollTo(0, 0)
+  }, [pathname, hash])
+
+  return null
+}
+
+function HomePage() {
   return (
     <main>
       <Hero />
@@ -24,6 +45,19 @@ function App() {
       <Cta />
       {/* <HowToReach /> */}
     </main>
+  )
+}
+
+function App() {
+  return (
+    <BrowserRouter>
+      <ScrollToTop />
+      <Nav />
+      <Routes>
+        <Route path="/" element={<HomePage />} />
+        <Route path="/gallery" element={<GalleryPage />} />
+      </Routes>
+    </BrowserRouter>
   )
 }
 

@@ -80,10 +80,10 @@ function Cta() {
           Temples, tide, and a quiet boat hour on Beyt Dwarka.
         </motion.p>
         <motion.div className="cta__actions" variants={fadeUp}>
-          <Button href="#packages" arrow tone="on-light">
+          <Button href="/#packages" arrow tone="on-light">
             Book your day
           </Button>
-          <Button href="#faq" tone="on-light">
+          <Button href="/#faq" tone="on-light">
             Ask a question
           </Button>
         </motion.div>

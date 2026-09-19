@@ -168,8 +168,10 @@ const EXPERIENCES = [
   },
 ]
 
-const FEATURED = EXPERIENCES.slice(0, 2)
-const MOSAIC = EXPERIENCES.slice(2)
+const HOME_COUNT = 6
+const HOME_EXPERIENCES = EXPERIENCES.slice(0, HOME_COUNT)
+const FEATURED = HOME_EXPERIENCES.slice(0, 2)
+const MOSAIC = HOME_EXPERIENCES.slice(2)
 
 const fadeUp = {
   hidden: { opacity: 0, y: 24 },
@@ -203,15 +205,18 @@ function Experiences() {
           <div>
             <p className="experiences__kicker">
               Island log
-              <span>{String(EXPERIENCES.length).padStart(2, '0')} moments</span>
+              <span>
+                {String(HOME_COUNT).padStart(2, '0')} of{' '}
+                {String(EXPERIENCES.length).padStart(2, '0')} moments
+              </span>
             </p>
             <h2 className="experiences__title" id="experiences-title">
               Incredible <em>experience</em>
             </h2>
           </div>
           <p className="experiences__lead">
-            Two openers, then eight more island hours — each a short look,
-            ready for its own page.
+            Six island hours on this page — the rest will live on their own
+            experiences route.
           </p>
         </motion.header>
 
@@ -225,6 +230,12 @@ function Experiences() {
           {MOSAIC.map((item) => (
             <Print key={item.id} item={item} size="tile" />
           ))}
+        </motion.div>
+
+        <motion.div className="experiences__more" variants={fadeUp}>
+          <Button href="/experiences" arrow tone="on-light">
+            Show all experiences
+          </Button>
         </motion.div>
       </motion.div>
     </section>
