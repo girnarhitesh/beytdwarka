@@ -1,6 +1,7 @@
 import AboutBeyt from './components/aboutBeytComponent/AboutBeyt.jsx'
 import DolphinSafari from './components/dolphinSafariComponent/DolphinSafari.jsx'
 import Experiences from './components/experiencesComponent/Experiences.jsx'
+import Faq from './components/faqComponent/Faq.jsx'
 import Gallery from './components/galleryComponent/Gallery.jsx'
 import Hero from './components/heroComponent/Hero.jsx'
 import HowToReach from './components/howToReachComponent/HowToReach.jsx'
@@ -16,6 +17,7 @@ function App() {
       <Packages />
       <Experiences />
       <Gallery />
+      <Faq />
       {/* <HowToReach /> */}
     </main>
   )
