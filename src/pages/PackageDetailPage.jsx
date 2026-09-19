@@ -1,5 +1,25 @@
 import { motion, useReducedMotion } from 'framer-motion'
-import { Check, Clock } from 'lucide-react'
+import {
+  Bath,
+  Car,
+  Clock,
+  Coffee,
+  Cookie,
+  Droplets,
+  Flame,
+  Footprints,
+  Gamepad2,
+  Landmark,
+  Leaf,
+  Moon,
+  ParkingCircle,
+  Ship,
+  Sun,
+  Tent,
+  Ticket,
+  Utensils,
+  Waves,
+} from 'lucide-react'
 import { Navigate, useParams } from 'react-router-dom'
 import Button from '../components/buttonComponent/Button.jsx'
 import { getPackage, PACKAGES } from '../data/packages.js'
@@ -16,6 +36,32 @@ const fadeUp = {
 const stagger = {
   hidden: {},
   show: { transition: { staggerChildren: 0.06, delayChildren: 0.05 } },
+}
+
+const ICONS = {
+  bath: Bath,
+  beach: Waves,
+  car: Car,
+  coffee: Coffee,
+  fire: Flame,
+  games: Gamepad2,
+  meals: Utensils,
+  moon: Moon,
+  parking: ParkingCircle,
+  snack: Cookie,
+  sports: Ship,
+  stay: Tent,
+  sun: Sun,
+  temple: Landmark,
+  therapy: Leaf,
+  ticket: Ticket,
+  walk: Footprints,
+  water: Droplets,
+}
+
+function inclusionItem(item) {
+  if (typeof item === 'string') return { icon: 'beach', title: item }
+  return item
 }
 
 function PackageDetailPage() {
@@ -94,14 +140,18 @@ function PackageDetailPage() {
               Inclusions
             </p>
             <ul>
-              {pack.inclusions.map((item) => (
-                <li key={item}>
-                  <span aria-hidden="true">
-                    <Check size={13} strokeWidth={2.4} />
-                  </span>
-                  {item}
-                </li>
-              ))}
+              {pack.inclusions.map((raw) => {
+                const item = inclusionItem(raw)
+                const Icon = ICONS[item.icon] ?? Waves
+                return (
+                  <li key={item.title}>
+                    <span aria-hidden="true">
+                      <Icon size={15} strokeWidth={1.75} />
+                    </span>
+                    {item.title}
+                  </li>
+                )
+              })}
             </ul>
           </motion.div>
 
