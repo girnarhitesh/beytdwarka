@@ -16,19 +16,8 @@ const LINKS = [
       { label: 'Entertainment', href: '/things-to-do#entertainment', tease: 'On the water' },
     ],
   },
-  {
-    id: 'life',
-    label: 'Island life',
-    items: [
-      { label: 'About Beyt', href: '/#about', tease: 'The island story' },
-      { label: 'Dolphin Safari', href: '/#dolphin', tease: 'Open water hour' },
-      { label: 'Experiences', href: '/#experiences', tease: 'Six island hours' },
-      { label: 'All experiences', href: '/experiences', tease: 'Full log, later' },
-    ],
-  },
   { id: 'packages', label: 'Packages', href: '/packages' },
   { id: 'gallery', label: 'Gallery', href: '/gallery' },
-  { id: 'help', label: 'Help', href: '/#faq' },
 ]
 
 function BrandMark({ href, onClick, reduced }) {
