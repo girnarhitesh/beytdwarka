@@ -17,6 +17,7 @@ import { BootScreen } from './components/loaderComponent/Loader.jsx'
 import GalleryPage from './pages/GalleryPage.jsx'
 import PackagesPage from './pages/PackagesPage.jsx'
 import ExperiencesPage from './pages/ExperiencesPage.jsx'
+import PackageDetailPage from './pages/PackageDetailPage.jsx'
 import ThingsToDoPage from './pages/ThingsToDoPage.jsx'
 import './App.css'
 
@@ -64,6 +65,7 @@ function App() {
           <Route path="/" element={<HomePage />} />
           <Route path="/gallery" element={<GalleryPage />} />
           <Route path="/packages" element={<PackagesPage />} />
+          <Route path="/packages/:slug" element={<PackageDetailPage />} />
           <Route path="/things-to-do" element={<ThingsToDoPage />} />
           <Route path="/experiences" element={<ExperiencesPage />} />
         </Routes>

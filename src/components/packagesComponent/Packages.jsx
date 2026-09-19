@@ -86,7 +86,7 @@ const PLANS = [
     bestFor: 'A relaxed half-day on the beach',
     duration: '4 hours',
     timing: 'From 09:00 AM',
-    price: 749,
+    price: 499,
     src: PHOTOS.beach,
     car: false,
   },
@@ -189,7 +189,7 @@ function Packages() {
               <LiveChip now={now} compact />
             </p>
             <h2 className="packages__title" id="packages-title">
-              Plan your day on{' '}
+              Plan your day on
               <span className="packages__title-end">
                 <em>the island</em>
               </span>
@@ -351,7 +351,15 @@ function PlanHeader({
       <div className="packages__top">
         <PhotoStage plan={plan} hoverTier={hoverTier} />
         <div className="packages__copy">
-          <h3>{plan.name}</h3>
+          <h3>
+            <a
+              className="packages__name"
+              href={`/packages/${plan.id}`}
+              onClick={(event) => event.stopPropagation()}
+            >
+              {plan.name}
+            </a>
+          </h3>
           <p className="packages__blurb">{plan.bestFor}</p>
           <p className="packages__meta">
             <span>
@@ -491,6 +499,13 @@ function BookCell({ plan, index, active, guests, onEnter, onSelect }) {
       >
         {label}
       </Button>
+      <a
+        className="packages__more"
+        href={`/packages/${plan.id}`}
+        onClick={(event) => event.stopPropagation()}
+      >
+        View details
+      </a>
     </div>
   )
 }
@@ -515,16 +530,20 @@ function MobileCard({ plan, planIndex, guests }) {
       <PhotoStage
         plan={plan}
         hoverTier={null}
-        overlay={
-          <div className="packages__overlay">
-            <h3>{plan.name}</h3>
-            <p>
-              <Clock size={13} strokeWidth={1.75} aria-hidden />
-              {plan.duration} · {plan.timing}
-            </p>
-            <strong>{rupees(plan.price)}</strong>
-          </div>
-        }
+          overlay={
+            <div className="packages__overlay">
+              <h3>
+                <a className="packages__name" href={`/packages/${plan.id}`}>
+                  {plan.name}
+                </a>
+              </h3>
+              <p>
+                <Clock size={13} strokeWidth={1.75} aria-hidden />
+                {plan.duration} · {plan.timing}
+              </p>
+              <strong>{rupees(plan.price)}</strong>
+            </div>
+          }
       />
 
       <div className="packages__includes">
@@ -581,6 +600,9 @@ function MobileCard({ plan, planIndex, guests }) {
         >
           {label}
         </Button>
+        <a className="packages__more" href={`/packages/${plan.id}`}>
+          View package details
+        </a>
         <p className="packages__hint">
           {blocked
             ? 'Darshan runs by AC car for 2–6 guests'

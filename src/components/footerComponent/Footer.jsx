@@ -14,9 +14,9 @@ const VISIT = [
 ]
 
 const OFFERS = [
-  { label: 'Padam Beach', href: '/packages' },
-  { label: 'Enjoy Beyt Dwarka', href: '/packages' },
-  { label: 'Beyt Dwarka Darshan', href: '/packages' },
+  { label: 'Padam Beach', href: '/packages/padam' },
+  { label: 'Enjoy Beyt Dwarka', href: '/packages/enjoy' },
+  { label: 'Beyt Dwarka Darshan', href: '/packages/darshan' },
   { label: 'Dolphin Safari', href: '/#dolphin' },
   { label: 'Full Splash', href: '/#combos' },
   { label: 'Sky Mix', href: '/#combos' },
