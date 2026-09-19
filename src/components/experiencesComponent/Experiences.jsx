@@ -25,7 +25,7 @@ const PHOTOS = {
   ),
 }
 
-const EXPERIENCES = [
+export const EXPERIENCES = [
   {
     id: 'dolphin',
     number: '01',
@@ -215,20 +215,20 @@ function Experiences() {
             </h2>
           </div>
           <p className="experiences__lead">
-            Six island hours on this page — the rest will live on their own
-            experiences route.
+            Six island hours on this page — open the full log for every
+            experience.
           </p>
         </motion.header>
 
         <motion.div className="experiences__featured" variants={stagger}>
           {FEATURED.map((item) => (
-            <Print key={item.id} item={item} size="lead" />
+            <ExperiencePrint key={item.id} item={item} size="lead" />
           ))}
         </motion.div>
 
         <motion.div className="experiences__mosaic" variants={stagger}>
           {MOSAIC.map((item) => (
-            <Print key={item.id} item={item} size="tile" />
+            <ExperiencePrint key={item.id} item={item} size="tile" />
           ))}
         </motion.div>
 
@@ -242,7 +242,7 @@ function Experiences() {
   )
 }
 
-function Print({ item, size }) {
+export function ExperiencePrint({ item, size }) {
   return (
     <motion.article className={`print print--${size}`} variants={fadeUp}>
       <img src={item.src} alt="" style={{ objectPosition: item.position }} />

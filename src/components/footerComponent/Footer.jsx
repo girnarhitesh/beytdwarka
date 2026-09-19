@@ -6,7 +6,7 @@ import './Footer.css'
 const VISIT = [
   { label: 'About us', href: '/#about' },
   { label: 'Things to do', href: '/things-to-do' },
-  { label: 'Experiences', href: '/things-to-do#experiences' },
+  { label: 'Experiences', href: '/experiences' },
   { label: 'Packages', href: '/packages' },
   { label: 'Gallery', href: '/gallery' },
   { label: 'FAQs', href: '/#faq' },
