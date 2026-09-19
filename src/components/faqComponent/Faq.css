@@ -200,6 +200,7 @@
 }
 
 @media (prefers-reduced-motion: reduce) {
+
   .faq__trigger,
   .faq__icon {
     transition: none;

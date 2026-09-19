@@ -1,4 +1,6 @@
 import AboutBeyt from './components/aboutBeytComponent/AboutBeyt.jsx'
+import Combos from './components/combosComponent/Combos.jsx'
+import Cta from './components/ctaComponent/Cta.jsx'
 import DolphinSafari from './components/dolphinSafariComponent/DolphinSafari.jsx'
 import Experiences from './components/experiencesComponent/Experiences.jsx'
 import Faq from './components/faqComponent/Faq.jsx'
@@ -15,9 +17,11 @@ function App() {
       <AboutBeyt />
       <DolphinSafari />
       <Packages />
+      <Combos />
       <Experiences />
       <Gallery />
       <Faq />
+      <Cta />
       {/* <HowToReach /> */}
     </main>
   )
