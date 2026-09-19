@@ -80,6 +80,8 @@ function Nav() {
   const [mobileOpen, setMobileOpen] = useState(false)
   const [mobileLayer, setMobileLayer] = useState(null)
   const leaveTimer = useRef(null)
+  const focusTimer = useRef(null)
+  const [deskFocus, setDeskFocus] = useState(false)
 
   const openMenu = (id) => {
     window.clearTimeout(leaveTimer.current)
@@ -89,6 +91,16 @@ function Nav() {
   const closeMenu = () => {
     window.clearTimeout(leaveTimer.current)
     leaveTimer.current = window.setTimeout(() => setOpenId(null), 120)
+  }
+
+  const enterFocus = () => {
+    window.clearTimeout(focusTimer.current)
+    setDeskFocus(true)
+  }
+
+  const leaveFocus = () => {
+    window.clearTimeout(focusTimer.current)
+    focusTimer.current = window.setTimeout(() => setDeskFocus(false), 100)
   }
 
   useEffect(() => {
@@ -129,7 +141,10 @@ function Nav() {
     return () => window.removeEventListener('change', onChange)
   }, [])
 
-  useEffect(() => () => window.clearTimeout(leaveTimer.current), [])
+  useEffect(() => () => {
+    window.clearTimeout(leaveTimer.current)
+    window.clearTimeout(focusTimer.current)
+  }, [])
 
   const closeMobile = () => {
     setMobileOpen(false)
@@ -142,10 +157,24 @@ function Nav() {
   }
 
   const duration = prefersReducedMotion ? 0 : 0.45
+  const veil = deskFocus || Boolean(openId)
   const layer = LINKS.find((link) => link.id === mobileLayer)
 
   return (
-    <header className={`nav${scrolled ? ' is-scrolled' : ''}${mobileOpen ? ' is-open' : ''}`}>
+    <header className={`nav${scrolled ? ' is-scrolled' : ''}${mobileOpen ? ' is-open' : ''}${veil ? ' is-veil' : ''}`}>
+      <AnimatePresence>
+        {veil ? (
+          <motion.div
+            className="nav__veil"
+            aria-hidden="true"
+            initial={prefersReducedMotion ? false : { opacity: 0 }}
+            animate={{ opacity: 1 }}
+            exit={{ opacity: 0 }}
+            transition={{ duration: prefersReducedMotion ? 0 : 0.28, ease: EASE }}
+          />
+        ) : null}
+      </AnimatePresence>
+
       <div className="nav__dock container">
         <BrandMark href="/" onClick={go} reduced={Boolean(prefersReducedMotion)} />
 
@@ -155,8 +184,14 @@ function Nav() {
               <div
                 key={link.id}
                 className={`nav__item${openId === link.id ? ' is-on' : ''}`}
-                onMouseEnter={() => openMenu(link.id)}
-                onMouseLeave={closeMenu}
+                onMouseEnter={() => {
+                  openMenu(link.id)
+                  enterFocus()
+                }}
+                onMouseLeave={() => {
+                  closeMenu()
+                  leaveFocus()
+                }}
               >
                 <button
                   type="button"
@@ -164,7 +199,11 @@ function Nav() {
                   aria-expanded={openId === link.id}
                   aria-controls={`${uid}-${link.id}`}
                   onClick={() => setOpenId((current) => (current === link.id ? null : link.id))}
-                  onFocus={() => openMenu(link.id)}
+                  onFocus={() => {
+                    openMenu(link.id)
+                    enterFocus()
+                  }}
+                  onBlur={leaveFocus}
                 >
                   {link.label}
                 </button>
@@ -181,7 +220,16 @@ function Nav() {
                 </div>
               </div>
             ) : (
-              <a key={link.id} className="nav__link" href={link.href} onClick={go}>
+              <a
+                key={link.id}
+                className="nav__link"
+                href={link.href}
+                onClick={go}
+                onMouseEnter={enterFocus}
+                onMouseLeave={leaveFocus}
+                onFocus={enterFocus}
+                onBlur={leaveFocus}
+              >
                 {link.label}
               </a>
             ),
@@ -196,6 +244,10 @@ function Nav() {
             className="nav__cta"
             tone={scrolled || mobileOpen ? 'on-light' : 'on-dark'}
             onClick={go}
+            onMouseEnter={enterFocus}
+            onMouseLeave={leaveFocus}
+            onFocus={enterFocus}
+            onBlur={leaveFocus}
           >
             Book
           </Button>

@@ -88,6 +88,10 @@
   gap: 2px;
 }
 
+.nav__veil {
+  display: none;
+}
+
 .nav__item {
   position: relative;
   display: flex;
@@ -206,8 +210,10 @@
 
 .nav__toggle {
   display: none;
-  width: 38px;
-  height: 38px;
+  position: relative;
+  flex: none;
+  width: 40px;
+  height: 40px;
   padding: 0;
   border: 0;
   background: transparent;
@@ -216,35 +222,67 @@
 }
 
 .nav__toggle i {
-  display: block;
-  width: 16px;
-  height: 1px;
-  margin: 5px auto;
+  position: absolute;
+  top: 50%;
+  left: 50%;
+  width: 18px;
+  height: 1.5px;
+  margin: 0;
   background: currentColor;
+  border-radius: 1px;
   transition: transform 0.28s cubic-bezier(0.22, 1, 0.36, 1);
 }
 
+.nav__toggle i:first-child {
+  transform: translate(-50%, calc(-50% - 5px));
+}
+
+.nav__toggle i:last-child {
+  transform: translate(-50%, calc(-50% + 5px));
+}
+
 .nav.is-open .nav__toggle i:first-child {
-  transform: translateY(3px) rotate(45deg);
+  transform: translate(-50%, -50%) rotate(45deg);
 }
 
 .nav.is-open .nav__toggle i:last-child {
-  transform: translateY(-3px) rotate(-45deg);
+  transform: translate(-50%, -50%) rotate(-45deg);
 }
 
 .nav__chart {
   display: none;
 }
 
+@media (min-width: 901px) {
+  .nav__veil {
+    display: block;
+    position: fixed;
+    inset: 0;
+    z-index: 45;
+    background: rgb(6 24 33 / 0.52);
+    pointer-events: none;
+  }
+
+  .nav.is-veil .nav__dock {
+    border-color: rgb(31 143 160 / 0.32);
+    background: rgb(6 24 33 / 0.42);
+    box-shadow: 0 16px 40px rgb(6 24 33 / 0.22);
+  }
+
+  .nav.is-scrolled.is-veil .nav__dock,
+  .nav.is-open.is-veil .nav__dock {
+    background: rgb(246 243 236 / 0.96);
+  }
+}
+
 @media (max-width: 900px) {
   .nav__desk,
-  .nav__cta {
+  .nav__cta.btn {
     display: none;
   }
 
   .nav__toggle {
-    display: grid;
-    place-items: center;
+    display: block;
   }
 
   .nav__chart {

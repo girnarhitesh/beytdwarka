@@ -530,20 +530,20 @@ function MobileCard({ plan, planIndex, guests }) {
       <PhotoStage
         plan={plan}
         hoverTier={null}
-          overlay={
-            <div className="packages__overlay">
-              <h3>
-                <a className="packages__name" href={`/packages/${plan.id}`}>
-                  {plan.name}
-                </a>
-              </h3>
-              <p>
-                <Clock size={13} strokeWidth={1.75} aria-hidden />
-                {plan.duration} · {plan.timing}
-              </p>
-              <strong>{rupees(plan.price)}</strong>
-            </div>
-          }
+        overlay={
+          <div className="packages__overlay">
+            <h3>
+              <a className="packages__name" href={`/packages/${plan.id}`}>
+                {plan.name}
+              </a>
+            </h3>
+            <p>
+              <Clock size={13} strokeWidth={1.75} aria-hidden />
+              {plan.duration} · {plan.timing}
+            </p>
+            <strong>{rupees(plan.price)}</strong>
+          </div>
+        }
       />
 
       <div className="packages__includes">
