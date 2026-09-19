@@ -19,7 +19,8 @@ const COMBOS = [
   {
     number: '01',
     name: 'Full Splash',
-    official: 'Combo Package 1',
+    why: 'All four water rides in one booking.',
+    count: '4 rides',
     price: 950,
     original: 1100,
     included: [
@@ -32,7 +33,8 @@ const COMBOS = [
   {
     number: '02',
     name: 'Sky Mix',
-    official: 'Combo Package 2',
+    why: 'Parasailing, then one extra ride of your choice.',
+    count: '2 rides',
     price: 1500,
     original: 1700,
     included: [{ id: 'para', name: 'Parasailing' }],
@@ -45,7 +47,8 @@ const COMBOS = [
   {
     number: '03',
     name: 'Jet Mix',
-    official: 'Combo Package 3',
+    why: 'Jet ski, then one extra ride of your choice.',
+    count: '2 rides',
     price: 600,
     original: 700,
     included: [{ id: 'jet', name: 'Jet Ski' }],
@@ -70,10 +73,10 @@ const stagger = {
 function Ride({ id, name }) {
   const Icon = ICONS[id]
   return (
-    <span className="combos__ride">
-      {Icon ? <Icon size={14} strokeWidth={1.8} aria-hidden="true" /> : null}
+    <li className="combos__ride">
+      {Icon ? <Icon size={13} strokeWidth={1.8} aria-hidden="true" /> : null}
       {name}
-    </span>
+    </li>
   )
 }
 
@@ -98,69 +101,69 @@ function Combos() {
               <span>03 mixes</span>
             </p>
             <h2 className="combos__title" id="combos-title">
-              Stack the rides. <em>Keep the saving.</em>
+              Three mixes. <em>One clear price.</em>
             </h2>
           </div>
           <p className="combos__lead">
-            Three water-sport mixes, written as one rate sheet — every ride and
-            the original price, visible at a glance.
+            See exactly which rides you get, where you pick one, and how much
+            you save versus booking them apart.
           </p>
         </motion.header>
 
-        <motion.article className="combos__sheet" variants={fadeUp}>
-          <aside className="combos__spine" aria-hidden="true">
-            <span>Mix</span>
-            <b>03</b>
-            <span>Water</span>
-          </aside>
-
-          <div className="combos__lanes">
-            {COMBOS.map((combo) => (
-              <div key={combo.number} className="combos__lane">
+        <div className="combos__grid">
+          {COMBOS.map((combo) => (
+            <motion.article key={combo.number} className="combos__card" variants={fadeUp}>
+              <header className="combos__top">
                 <p className="combos__no">{combo.number}</p>
+                <div>
+                  <h3>{combo.name}</h3>
+                  <p className="combos__why">{combo.why}</p>
+                </div>
+                <p className="combos__count">{combo.count}</p>
+              </header>
 
-                <div className="combos__copy">
-                  <h3>
-                    {combo.name}
-                    <small>{combo.official}</small>
-                  </h3>
-
-                  <div className="combos__recipe">
+              <div className="combos__groups">
+                <div className="combos__group">
+                  <p className="combos__label">Included</p>
+                  <ul>
                     {combo.included.map((ride) => (
                       <Ride key={ride.id} {...ride} />
                     ))}
-                    {combo.choice ? (
-                      <span className="combos__or">
-                        <em>any one</em>
-                        {combo.choice.map((ride) => (
-                          <Ride key={ride.id} {...ride} />
-                        ))}
-                      </span>
-                    ) : null}
-                  </div>
+                  </ul>
                 </div>
 
-                <p className="combos__fare">
-                  <span className="combos__now">
-                    {rupees(combo.price)}
-                    <small>/ person</small>
-                  </span>
-                  <span className="combos__was">
-                    <s>{rupees(combo.original)}</s>
-                    save {rupees(combo.original - combo.price)}
-                  </span>
+                {combo.choice ? (
+                  <div className="combos__group">
+                    <p className="combos__label">Pick one</p>
+                    <ul>
+                      {combo.choice.map((ride) => (
+                        <Ride key={ride.id} {...ride} />
+                      ))}
+                    </ul>
+                  </div>
+                ) : null}
+              </div>
+
+              <div className="combos__fare">
+                <p className="combos__now">
+                  {rupees(combo.price)}
+                  <small>/ person</small>
+                </p>
+                <p className="combos__was">
+                  <s>{rupees(combo.original)}</s>
+                  Save {rupees(combo.original - combo.price)}
                 </p>
               </div>
-            ))}
+            </motion.article>
+          ))}
+        </div>
 
-            <div className="combos__foot">
-              <p>Prices include the listed water rides only. Day packages are separate.</p>
-              <Button href="#book" arrow tone="on-dark">
-                Book a mix
-              </Button>
-            </div>
-          </div>
-        </motion.article>
+        <motion.div className="combos__foot" variants={fadeUp}>
+          <p>Prices cover the water rides listed here. Day packages are separate.</p>
+          <Button href="#book" arrow tone="on-light">
+            Book a mix
+          </Button>
+        </motion.div>
       </motion.div>
     </section>
   )

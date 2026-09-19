@@ -258,7 +258,7 @@ function Print({ item, size }) {
         <h3>{item.name}</h3>
         {size === 'lead' ? <p className="print__tease">{item.tease}</p> : null}
         <Button
-          href="#packages"
+          href="/packages"
           arrow
           size="sm"
           tone="on-dark"

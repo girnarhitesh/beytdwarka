@@ -1,12 +1,14 @@
 .combos {
   --cmb-bg: #f6f3ec;
+  --cmb-card: #fff;
   --cmb-sand: #f4e4c1;
   --cmb-brand: #1f8fa0;
   --cmb-mid: #11464f;
   --cmb-deep: #0f3338;
-  --cmb-deeper: #061821;
-  --cmb-soft: rgb(31 143 160 / 0.14);
-  --cmb-line: rgb(31 143 160 / 0.28);
+  --cmb-body: #5c5852;
+  --cmb-muted: #8a857c;
+  --cmb-line: rgb(31 143 160 / 0.18);
+  --cmb-soft: rgb(31 143 160 / 0.1);
   --text-h: var(--cmb-deep);
   background: var(--cmb-bg);
   color: var(--cmb-deep);
@@ -46,7 +48,7 @@
 }
 
 .combos__kicker span {
-  color: var(--cmb-mid);
+  color: var(--cmb-muted);
 }
 
 .combos__title {
@@ -65,156 +67,144 @@
   max-width: 28em;
   font-size: var(--text-lead);
   line-height: var(--leading-body);
-  color: var(--cmb-mid);
+  color: var(--cmb-body);
 }
 
-.combos__sheet {
+.combos__grid {
   display: grid;
-  grid-template-columns: 72px 1fr;
-  overflow: hidden;
-  background: var(--cmb-sand);
+  grid-template-columns: repeat(3, minmax(0, 1fr));
+  gap: 12px;
+}
+
+.combos__card {
+  display: flex;
+  flex-direction: column;
+  gap: 16px;
+  min-width: 0;
+  padding: 18px 18px 16px;
+  background: var(--cmb-card);
   border: 1px solid var(--cmb-line);
-  box-shadow: 0 18px 40px rgb(6 24 33 / 0.1);
 }
 
-.combos__spine {
-  display: flex;
-  flex-direction: column;
-  align-items: center;
-  justify-content: space-between;
-  padding: 28px 0;
-  background: var(--cmb-deep);
-  color: var(--cmb-sand);
-  writing-mode: vertical-rl;
-  transform: rotate(180deg);
-  letter-spacing: 0.28em;
-  text-transform: uppercase;
-  font-size: 11px;
-  font-weight: 700;
-}
-
-.combos__spine b {
-  font-size: 22px;
-  letter-spacing: 0.08em;
-  color: var(--cmb-brand);
-}
-
-.combos__lanes {
-  display: flex;
-  flex-direction: column;
-  background: var(--cmb-bg);
-}
-
-.combos__lane {
+.combos__top {
   display: grid;
-  grid-template-columns: 56px 1fr auto;
-  gap: 18px 24px;
-  align-items: center;
-  padding: 22px 28px;
-  border-bottom: 1px dashed var(--cmb-line);
+  grid-template-columns: auto 1fr auto;
+  gap: 10px 12px;
+  align-items: start;
 }
 
 .combos__no {
   margin: 0;
-  font-size: 22px;
+  font-size: 12px;
   font-weight: 700;
-  letter-spacing: -0.06em;
+  letter-spacing: 0.14em;
   color: var(--cmb-brand);
 }
 
-.combos__copy h3 {
-  display: flex;
-  flex-wrap: wrap;
-  align-items: baseline;
-  gap: 8px 12px;
-  margin: 0 0 12px;
-  font-size: clamp(18px, 1.7vw, 22px);
+.combos__top h3 {
+  margin: 0;
+  font-size: 18px;
   letter-spacing: -0.03em;
   color: var(--cmb-deep);
 }
 
-.combos__copy small {
-  font-size: 11px;
+.combos__why {
+  margin: 4px 0 0;
+  font-size: 13px;
+  line-height: 1.45;
+  color: var(--cmb-body);
+}
+
+.combos__count {
+  margin: 0;
+  padding: 4px 8px;
+  border-radius: 999px;
+  background: var(--cmb-soft);
+  font-size: 10px;
+  font-weight: 700;
+  letter-spacing: 0.08em;
+  text-transform: uppercase;
+  color: var(--cmb-mid);
+  white-space: nowrap;
+}
+
+.combos__groups {
+  display: flex;
+  flex-direction: column;
+  gap: 12px;
+  flex: 1;
+}
+
+.combos__group ul {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 6px;
+  margin: 0;
+  padding: 0;
+  list-style: none;
+}
+
+.combos__label {
+  margin: 0 0 6px;
+  font-size: 10px;
   font-weight: 700;
   letter-spacing: 0.14em;
   text-transform: uppercase;
-  color: var(--cmb-brand);
-}
-
-.combos__recipe {
-  display: flex;
-  flex-wrap: wrap;
-  align-items: center;
-  gap: 8px;
+  color: var(--cmb-muted);
 }
 
 .combos__ride {
   display: inline-flex;
   align-items: center;
   gap: 6px;
-  padding: 6px 10px;
+  padding: 5px 9px;
   background: var(--cmb-soft);
   color: var(--cmb-deep);
-  font-size: 13px;
+  font-size: 12px;
   font-weight: 600;
 }
 
-.combos__or {
-  display: inline-flex;
-  flex-wrap: wrap;
-  align-items: center;
-  gap: 8px;
-  padding: 6px;
-  background: rgb(244 228 193 / 0.55);
-  border: 1px dashed var(--cmb-line);
-}
-
-.combos__or em {
-  padding: 0 6px;
-  font-size: 10px;
-  font-style: normal;
-  font-weight: 700;
-  letter-spacing: 0.14em;
-  text-transform: uppercase;
-  color: var(--cmb-brand);
+.combos__group:nth-child(2) .combos__ride {
+  background: transparent;
+  box-shadow: inset 0 0 0 1px var(--cmb-line);
 }
 
 .combos__fare {
   display: flex;
-  flex-direction: column;
-  align-items: flex-end;
-  gap: 4px;
-  margin: 0;
-  text-align: right;
+  align-items: baseline;
+  justify-content: space-between;
+  gap: 10px;
+  padding-top: 12px;
+  border-top: 1px solid var(--cmb-line);
 }
 
 .combos__now {
   display: flex;
   align-items: baseline;
   gap: 6px;
-  font-size: clamp(22px, 2.2vw, 28px);
+  margin: 0;
+  font-size: 22px;
   font-weight: 700;
   letter-spacing: -0.04em;
   color: var(--cmb-deep);
 }
 
 .combos__now small {
-  font-size: 12px;
+  font-size: 11px;
   font-weight: 600;
-  color: var(--cmb-mid);
+  color: var(--cmb-muted);
 }
 
 .combos__was {
+  margin: 0;
   font-size: 12px;
   font-weight: 600;
-  letter-spacing: 0.04em;
-  text-transform: uppercase;
-  color: var(--cmb-mid);
+  color: var(--cmb-brand);
 }
 
 .combos__was s {
-  margin-right: 8px;
-  color: var(--cmb-brand);
+  margin-right: 6px;
+  color: var(--cmb-muted);
 }
 
 .combos__foot {
@@ -222,9 +212,6 @@
   align-items: center;
   justify-content: space-between;
   gap: 16px;
-  padding: 18px 28px;
-  background: var(--cmb-deep);
-  color: var(--cmb-sand);
 }
 
 .combos__foot p {
@@ -232,7 +219,7 @@
   max-width: 36em;
   font-size: 13px;
   line-height: var(--leading-body);
-  color: var(--cmb-sand);
+  color: var(--cmb-body);
 }
 
 @media (max-width: 900px) {
@@ -241,15 +228,12 @@
     align-items: start;
   }
 
-  .combos__lane {
-    grid-template-columns: 40px 1fr;
-    padding: 20px;
+  .combos__grid {
+    grid-template-columns: 1fr;
   }
 
-  .combos__fare {
-    grid-column: 2;
-    align-items: flex-start;
-    text-align: left;
+  .combos__card {
+    padding: 16px;
   }
 
   .combos__foot {
@@ -259,17 +243,12 @@
 }
 
 @media (max-width: 640px) {
-  .combos__sheet {
-    grid-template-columns: 1fr;
+  .combos__top {
+    grid-template-columns: auto 1fr;
   }
 
-  .combos__spine {
-    flex-direction: row;
-    writing-mode: horizontal-tb;
-    transform: none;
-    justify-content: center;
-    gap: 16px;
-    padding: 12px 16px;
-    letter-spacing: 0.18em;
+  .combos__count {
+    grid-column: 2;
+    justify-self: start;
   }
 }

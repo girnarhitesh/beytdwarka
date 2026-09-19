@@ -7,7 +7,15 @@ import './Nav.css'
 const EASE = [0.22, 1, 0.36, 1]
 
 const LINKS = [
-  { id: 'island', label: 'Island', href: '/#about' },
+  {
+    id: 'things-to-do',
+    label: 'Things To Do',
+    items: [
+      { label: 'Explore', href: '/things-to-do#explore', tease: 'Beaches, trails, points' },
+      { label: 'Experiences', href: '/things-to-do#experiences', tease: 'Island hours' },
+      { label: 'Entertainment', href: '/things-to-do#entertainment', tease: 'On the water' },
+    ],
+  },
   {
     id: 'life',
     label: 'Island life',
@@ -18,17 +26,62 @@ const LINKS = [
       { label: 'All experiences', href: '/experiences', tease: 'Full log, later' },
     ],
   },
-  {
-    id: 'plans',
-    label: 'Plans',
-    items: [
-      { label: 'Day packages', href: '/#packages', tease: 'Padam, Enjoy, Darshan' },
-      { label: 'Water combos', href: '/#combos', tease: 'Stack the rides' },
-    ],
-  },
+  { id: 'packages', label: 'Packages', href: '/packages' },
   { id: 'gallery', label: 'Gallery', href: '/gallery' },
   { id: 'help', label: 'Help', href: '/#faq' },
 ]
+
+function BrandMark({ href, onClick, reduced }) {
+  const [hover, setHover] = useState(false)
+  const name = site.shortName
+
+  return (
+    <a
+      className="nav__mark"
+      href={href}
+      onClick={onClick}
+      aria-label={name}
+      onMouseEnter={() => setHover(true)}
+      onMouseLeave={() => setHover(false)}
+      onFocus={() => setHover(true)}
+      onBlur={() => setHover(false)}
+    >
+      <span className="nav__mark-name">
+        {Array.from(name).map((char, index) =>
+          char === ' ' ? (
+            <span key={`space-${index}`} className="nav__mark-space">
+              {' '}
+            </span>
+          ) : (
+            <motion.span
+              key={`${char}-${index}`}
+              className="nav__mark-letter"
+              animate={
+                reduced
+                  ? { opacity: 1, y: 0 }
+                  : hover
+                    ? { opacity: 1, y: -2, color: '#1f8fa0' }
+                    : { opacity: [0.58, 1, 0.58], y: [0, -1.2, 0], color: 'currentColor' }
+              }
+              transition={
+                hover
+                  ? { duration: 0.35, ease: EASE, delay: index * 0.028 }
+                  : {
+                      duration: 2.8,
+                      ease: 'easeInOut',
+                      repeat: Infinity,
+                      delay: index * 0.11,
+                    }
+              }
+            >
+              {char}
+            </motion.span>
+          ),
+        )}
+      </span>
+    </a>
+  )
+}
 
 function Nav() {
   const uid = useId()
@@ -105,10 +158,7 @@ function Nav() {
   return (
     <header className={`nav${scrolled ? ' is-scrolled' : ''}${mobileOpen ? ' is-open' : ''}`}>
       <div className="nav__dock container">
-        <a className="nav__mark" href="/" onClick={go}>
-          {/* <span className="nav__mark-tick" aria-hidden="true" /> */}
-          <span className="nav__mark-name">{site.shortName}</span>
-        </a>
+        <BrandMark href="/" onClick={go} reduced={Boolean(prefersReducedMotion)} />
 
         <nav className="nav__desk" aria-label="Primary">
           {LINKS.map((link) =>

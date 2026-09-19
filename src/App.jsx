@@ -11,7 +11,10 @@ import Hero from './components/heroComponent/Hero.jsx'
 import HowToReach from './components/howToReachComponent/HowToReach.jsx'
 import Nav from './components/navComponent/Nav.jsx'
 import Packages from './components/packagesComponent/Packages.jsx'
+import { BootScreen } from './components/loaderComponent/Loader.jsx'
 import GalleryPage from './pages/GalleryPage.jsx'
+import PackagesPage from './pages/PackagesPage.jsx'
+import ThingsToDoPage from './pages/ThingsToDoPage.jsx'
 import './App.css'
 
 function ScrollToTop() {
@@ -51,12 +54,16 @@ function HomePage() {
 function App() {
   return (
     <BrowserRouter>
-      <ScrollToTop />
-      <Nav />
-      <Routes>
-        <Route path="/" element={<HomePage />} />
-        <Route path="/gallery" element={<GalleryPage />} />
-      </Routes>
+      {/* <BootScreen> */}
+        <ScrollToTop />
+        <Nav />
+        <Routes>
+          <Route path="/" element={<HomePage />} />
+          <Route path="/gallery" element={<GalleryPage />} />
+          <Route path="/packages" element={<PackagesPage />} />
+          <Route path="/things-to-do" element={<ThingsToDoPage />} />
+        </Routes>
+      {/* </BootScreen> */}
     </BrowserRouter>
   )
 }

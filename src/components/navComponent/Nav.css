@@ -54,25 +54,31 @@
   display: inline-flex;
   align-items: center;
   align-self: center;
-  gap: 8px;
   margin-right: auto;
   color: inherit;
   text-decoration: none;
 }
 
-.nav__mark-tick {
-  width: 8px;
-  height: 8px;
-  border-radius: 50%;
-  background: var(--nav-brand);
-  box-shadow: 0 0 0 5px rgb(31 143 160 / 0.18);
+.nav__mark:focus-visible {
+  outline: 2px solid var(--nav-brand);
+  outline-offset: 4px;
 }
 
 .nav__mark-name {
-  font-size: 13px;
+  display: inline-flex;
+  font-size: 16px;
   font-weight: 700;
   letter-spacing: 0.08em;
   text-transform: uppercase;
+  line-height: 1;
+}
+
+.nav__mark-letter {
+  display: inline-block;
+}
+
+.nav__mark-space {
+  width: 0.35em;
 }
 
 .nav__desk {
