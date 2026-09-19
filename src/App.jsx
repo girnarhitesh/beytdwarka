@@ -11,6 +11,7 @@ import Hero from './components/heroComponent/Hero.jsx'
 import HowToReach from './components/howToReachComponent/HowToReach.jsx'
 import Nav from './components/navComponent/Nav.jsx'
 import Packages from './components/packagesComponent/Packages.jsx'
+import Footer from './components/footerComponent/Footer.jsx'
 import { BootScreen } from './components/loaderComponent/Loader.jsx'
 import GalleryPage from './pages/GalleryPage.jsx'
 import PackagesPage from './pages/PackagesPage.jsx'
@@ -63,6 +64,7 @@ function App() {
           <Route path="/packages" element={<PackagesPage />} />
           <Route path="/things-to-do" element={<ThingsToDoPage />} />
         </Routes>
+        <Footer />
       {/* </BootScreen> */}
     </BrowserRouter>
   )
