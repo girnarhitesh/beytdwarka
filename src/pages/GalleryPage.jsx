@@ -2,6 +2,7 @@ import { motion, useReducedMotion } from 'framer-motion'
 import { useState } from 'react'
 import Button from '../components/buttonComponent/Button.jsx'
 import Cta from '../components/ctaComponent/Cta.jsx'
+import PageHeader from '../components/pageHeaderComponent/PageHeader.jsx'
 import { FRAMES, Lightbox } from '../components/galleryComponent/Gallery.jsx'
 import '../components/galleryComponent/Gallery.css'
 import './GalleryPage.css'
@@ -33,36 +34,33 @@ function GalleryPage() {
 
   return (
     <main className="gallery-page">
-      <section className="gallery-hero" aria-labelledby="gallery-page-title">
-        <div className="gallery-hero__media" aria-hidden="true">
-          <img src={HERO.src} alt="" style={{ objectPosition: HERO.position }} />
-        </div>
-        <div className="gallery-hero__copy container">
-          <div className="gallery-hero__intro">
-            <p className="gallery-hero__kicker">
-              Frames
-              <span>{String(FRAMES.length).padStart(2, '0')} stills</span>
-            </p>
-            <h1 className="gallery-hero__title" id="gallery-page-title">
-              Light on the island, <em>held still.</em>
-            </h1>
-          </div>
-          <div className="gallery-hero__side">
-            <p className="gallery-hero__lead">
-              Shore, harbour, fire and last light — a compact set from Beyt
-              Dwarka. Open any frame.
-            </p>
-            <div className="gallery-hero__actions">
-              <Button href="#frames" arrow>
-                View frames
-              </Button>
-              <Button href="/#book" tone="on-dark">
-                Book your day
-              </Button>
-            </div>
-          </div>
-        </div>
-      </section>
+      <PageHeader
+        crumb={[
+          { label: 'Home', href: '/' },
+          { label: 'Gallery' },
+        ]}
+        kicker="Frames"
+        kickerMeta={`${String(FRAMES.length).padStart(2, '0')} stills`}
+        title={
+          <>
+            Light on the island, <em>held still.</em>
+          </>
+        }
+        titleId="gallery-page-title"
+        lead="Shore, harbour, fire and last light — a compact set from Beyt Dwarka. Open any frame."
+        actions={
+          <>
+            <Button href="#frames" arrow>
+              View frames
+            </Button>
+            <Button href="/#book" tone="on-dark">
+              Book your day
+            </Button>
+          </>
+        }
+        src={HERO.src}
+        position={HERO.position}
+      />
 
       <section className="gallery-wall section" id="frames" aria-label="Photograph wall">
         <motion.div className="gallery-wall__board container" {...motionProps}>

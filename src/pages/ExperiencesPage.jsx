@@ -1,6 +1,7 @@
 import { motion, useReducedMotion } from 'framer-motion'
 import Button from '../components/buttonComponent/Button.jsx'
 import Cta from '../components/ctaComponent/Cta.jsx'
+import PageHeader from '../components/pageHeaderComponent/PageHeader.jsx'
 import {
   EXPERIENCES,
   ExperiencePrint,
@@ -30,45 +31,33 @@ function ExperiencesPage() {
 
   return (
     <main className="exp-page">
-      <section className="exp-page__hero" aria-labelledby="exp-page-title">
-        <div className="exp-page__media" aria-hidden="true">
-          <img
-            src={HERO.src}
-            alt=""
-            style={{ objectPosition: HERO.position }}
-          />
-        </div>
-        <div className="exp-page__copy container">
-          <div>
-            <p className="exp-page__crumb">
-              <a href="/">Home</a>
-              <span>/</span>
-              Experiences
-            </p>
-            <p className="exp-page__kicker">
-              Island log
-              <span>{String(EXPERIENCES.length).padStart(2, '0')} moments</span>
-            </p>
-            <h1 className="exp-page__title" id="exp-page-title">
-              Incredible <em>experience</em>
-            </h1>
-          </div>
-          <div className="exp-page__side">
-            <p className="exp-page__lead">
-              Every island hour — safari, shore, darshan, trails, and last
-              light on the gulf.
-            </p>
-            <div className="exp-page__actions">
-              <Button href="#all-experiences" arrow>
-                View all
-              </Button>
-              <Button href="/#book" tone="on-dark">
-                Book your day
-              </Button>
-            </div>
-          </div>
-        </div>
-      </section>
+      <PageHeader
+        crumb={[
+          { label: 'Home', href: '/' },
+          { label: 'Experiences' },
+        ]}
+        kicker="Island log"
+        kickerMeta={`${String(EXPERIENCES.length).padStart(2, '0')} moments`}
+        title={
+          <>
+            Incredible <em>experience</em>
+          </>
+        }
+        titleId="exp-page-title"
+        lead="Every island hour — safari, shore, darshan, trails, and last light on the gulf."
+        actions={
+          <>
+            <Button href="#all-experiences" arrow>
+              View all
+            </Button>
+            <Button href="/#book" tone="on-dark">
+              Book your day
+            </Button>
+          </>
+        }
+        src={HERO.src}
+        position={HERO.position}
+      />
 
       <section
         className="experiences section"

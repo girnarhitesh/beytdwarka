@@ -1,6 +1,7 @@
 import { motion, useReducedMotion } from 'framer-motion'
 import { useLocation } from 'react-router-dom'
 import Cta from '../components/ctaComponent/Cta.jsx'
+import PageHeader from '../components/pageHeaderComponent/PageHeader.jsx'
 import './ThingsToDoPage.css'
 
 const EASE = [0.22, 1, 0.36, 1]
@@ -231,23 +232,22 @@ function ThingsToDoPage() {
 
   return (
     <main className="todo">
-      <section className="todo-hero" aria-labelledby="todo-title">
-        <div className="todo-hero__media" aria-hidden="true">
-          <img src={HERO} alt="" />
-        </div>
-        <div className="todo-hero__copy container">
-          <div>
-            <p className="todo-hero__kicker">Things to do</p>
-            <h1 className="todo-hero__title" id="todo-title">
-              Explore, experience, and <em>entertain</em> on the island.
-            </h1>
-          </div>
-          <p className="todo-hero__lead">
-            Three clear paths — beaches and trails, island hours, and time on
-            the water. Start with Explore.
-          </p>
-        </div>
-      </section>
+      <PageHeader
+        crumb={[
+          { label: 'Home', href: '/' },
+          { label: 'Things To Do' },
+        ]}
+        kicker="Things to do"
+        title={
+          <>
+            Explore, experience, and <em>entertain</em> on the island.
+          </>
+        }
+        titleId="todo-title"
+        lead="Three clear paths — beaches and trails, island hours, and time on the water. Start with Explore."
+        src={HERO}
+        position="50% 62%"
+      />
 
       <nav className="todo-tabs" aria-label="Things to do categories">
         <div className="todo-tabs__row container">

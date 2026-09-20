@@ -18,6 +18,8 @@ import GalleryPage from './pages/GalleryPage.jsx'
 import PackagesPage from './pages/PackagesPage.jsx'
 import ExperiencesPage from './pages/ExperiencesPage.jsx'
 import PackageDetailPage from './pages/PackageDetailPage.jsx'
+import CampDetailPage from './pages/CampDetailPage.jsx'
+import CampSitePage from './pages/CampSitePage.jsx'
 import ThingsToDoPage from './pages/ThingsToDoPage.jsx'
 import './App.css'
 
@@ -67,6 +69,8 @@ function App() {
           <Route path="/packages" element={<PackagesPage />} />
           <Route path="/packages/:slug" element={<PackageDetailPage />} />
           <Route path="/things-to-do" element={<ThingsToDoPage />} />
+          <Route path="/camp-site" element={<CampSitePage />} />
+          <Route path="/camp-site/:slug" element={<CampDetailPage />} />
           <Route path="/experiences" element={<ExperiencesPage />} />
         </Routes>
         <Footer />

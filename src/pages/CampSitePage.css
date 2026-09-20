@@ -1,0 +1,277 @@
+.camp-page {
+  --camp-bg: #f6f3ec;
+  --camp-ink: #1c1c1c;
+  --camp-body: #5c5852;
+  --camp-muted: #8a857c;
+  --camp-brand: #1f8fa0;
+  --camp-sand: #f4e4c1;
+  --camp-deep: #061821;
+  --camp-mid: #0f3338;
+  --camp-card: #fff;
+  background: var(--camp-bg);
+  color: var(--camp-ink);
+  font-family: var(--sans);
+}
+
+.camp-page__grid {
+  display: grid;
+  grid-template-columns: 1fr 1fr;
+  gap: 12px;
+  align-items: stretch;
+}
+
+.camp-card {
+  display: flex;
+  flex-direction: column;
+  min-width: 0;
+  overflow: hidden;
+  background: var(--camp-card);
+  color: var(--camp-ink);
+  box-shadow: 0 12px 28px rgb(6 24 33 / 0.08);
+}
+
+.camp-card__shot {
+  position: relative;
+  width: 100%;
+  aspect-ratio: 16 / 9;
+  overflow: hidden;
+  background: var(--camp-mid);
+}
+
+.camp-card__shot a {
+  position: absolute;
+  inset: 0;
+}
+
+.camp-card__shot img {
+  display: block;
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+}
+
+.camp-card__chip {
+  position: absolute;
+  z-index: 1;
+  top: 8px;
+  left: 8px;
+  margin: 0;
+  padding: 4px 8px;
+  border-radius: 999px;
+  background: rgb(6 24 33 / 0.55);
+  color: var(--camp-sand);
+  font-size: 10px;
+  font-weight: 700;
+  letter-spacing: 0.12em;
+  text-transform: uppercase;
+  pointer-events: none;
+}
+
+.camp-card__fare {
+  position: absolute;
+  z-index: 1;
+  right: 8px;
+  bottom: 8px;
+  margin: 0;
+  padding: 6px 8px;
+  background: #f4e4c1;
+  color: var(--camp-deep);
+  pointer-events: none;
+}
+
+.camp-card__fare strong {
+  display: block;
+  font-size: 18px;
+  font-weight: 700;
+  letter-spacing: -0.04em;
+  line-height: 1;
+}
+
+.camp-card__fare span {
+  display: block;
+  margin-top: 2px;
+  font-size: 9px;
+  font-weight: 700;
+  letter-spacing: 0.06em;
+  text-transform: uppercase;
+  color: #5c5852;
+}
+
+.camp-card__body {
+  display: flex;
+  flex: 1;
+  flex-direction: column;
+  gap: 10px;
+  padding: 12px 14px 12px;
+}
+
+.camp-card__head {
+  display: flex;
+  align-items: start;
+  justify-content: space-between;
+  gap: 12px;
+}
+
+.camp-card__head h2 {
+  margin: 0 0 2px;
+  color: var(--camp-deep);
+  font-size: 18px;
+}
+
+.camp-card__head p {
+  margin: 0;
+  color: var(--camp-body);
+  font-size: 12px;
+  line-height: 1.4;
+}
+
+.camp-card__from {
+  flex: none;
+  margin: 0;
+  text-align: right;
+  color: var(--camp-muted);
+  font-size: 9px;
+  font-weight: 700;
+  letter-spacing: 0.08em;
+  text-transform: uppercase;
+}
+
+.camp-card__from strong {
+  display: block;
+  color: var(--camp-brand);
+  font-size: 18px;
+  letter-spacing: -0.04em;
+  line-height: 1.1;
+}
+
+.camp-card__from span {
+  display: block;
+  margin-top: 1px;
+}
+
+.camp-rate {
+  display: grid;
+  gap: 1px;
+  overflow: hidden;
+  background: rgb(31 143 160 / 0.12);
+  border: 1px solid rgb(31 143 160 / 0.16);
+}
+
+.camp-rate__row {
+  display: grid;
+  grid-template-columns: minmax(7.5rem, 1.15fr) repeat(3, minmax(0, 1fr));
+  gap: 1px;
+}
+
+.camp-rate__row > * {
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  min-width: 0;
+  padding: 6px 8px;
+  background: #fff;
+}
+
+.camp-rate__row--head > * {
+  background: #f4e4c1;
+  color: var(--camp-deep);
+  font-size: 11px;
+  font-weight: 700;
+  line-height: 1.25;
+  letter-spacing: 0;
+  text-wrap: balance;
+}
+
+.camp-rate__row strong {
+  color: var(--camp-deep);
+  font-size: 12px;
+  font-weight: 600;
+  line-height: 1.2;
+}
+
+.camp-rate__row [role='cell'] {
+  color: var(--camp-brand);
+  font-size: 12px;
+  font-weight: 700;
+  letter-spacing: -0.02em;
+}
+
+.camp-card__notes,
+.camp-card__pills {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 6px;
+  margin: 0;
+  padding: 0;
+  list-style: none;
+}
+
+.camp-card__notes li,
+.camp-card__pills li {
+  padding: 4px 8px;
+  background: rgb(31 143 160 / 0.1);
+  color: var(--camp-mid);
+  font-size: 11px;
+  font-weight: 600;
+}
+
+.camp-card__foot {
+  display: flex;
+  flex-wrap: wrap;
+  align-items: center;
+  justify-content: space-between;
+  gap: 8px;
+  margin-top: auto;
+}
+
+.camp-card__foot p {
+  margin: 0;
+  color: var(--camp-muted);
+  font-size: 11px;
+  font-weight: 600;
+  letter-spacing: 0.04em;
+  text-transform: uppercase;
+}
+
+.camp-card--tent {
+  background: var(--camp-deep);
+  color: var(--camp-sand);
+}
+
+.camp-card--tent .camp-card__head h2 {
+  color: #f6f3ec;
+}
+
+.camp-card--tent .camp-card__head p {
+  color: rgb(246 243 236 / 0.78);
+}
+
+.camp-card--tent .camp-card__pills li {
+  background: rgb(244 228 193 / 0.12);
+  color: var(--camp-sand);
+}
+
+.camp-card--tent .camp-card__foot p {
+  color: rgb(244 228 193 / 0.7);
+}
+
+@media (max-width: 900px) {
+  .camp-page__grid {
+    grid-template-columns: 1fr;
+  }
+}
+
+@media (max-width: 640px) {
+  .camp-card__head {
+    flex-direction: column;
+    gap: 6px;
+  }
+
+  .camp-card__from {
+    text-align: left;
+  }
+
+  .camp-rate__row {
+    grid-template-columns: minmax(6.5rem, 1fr) repeat(3, minmax(0, 1fr));
+  }
+}

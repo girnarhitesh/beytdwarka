@@ -20,6 +20,9 @@
   --page-max: 1300px;
   --page-gutter: 20px;
   --page-pad-y: clamp(36px, 5.5vh, 56px);
+  --page-hero-min: 36vh;
+  --page-hero-pad-top: 96px;
+  --page-hero-pad-bottom: 28px;
 
   --text-h1: clamp(40px, 5vw, 64px);
   --text-h2: clamp(32px, 3.5vw, 44px);

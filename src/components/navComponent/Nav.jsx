@@ -17,6 +17,7 @@ const LINKS = [
     ],
   },
   { id: 'packages', label: 'Packages', href: '/packages' },
+  { id: 'camp-site', label: 'Camp Site', href: '/camp-site' },
   { id: 'gallery', label: 'Gallery', href: '/gallery' },
 ]
 
