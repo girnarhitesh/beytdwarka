@@ -15,10 +15,6 @@
   font-family: var(--sans);
 }
 
-.about-beyt.section {
-  padding-bottom: 72px;
-}
-
 .about-beyt__rest {
   position: absolute;
   right: -5%;
@@ -389,10 +385,6 @@
 }
 
 @media (max-width: 767px) {
-  .about-beyt.section {
-    padding-block: 40px 56px;
-  }
-
   .about-beyt__rest {
     right: -12%;
     bottom: -64px;

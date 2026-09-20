@@ -10,10 +10,6 @@
   font-family: var(--sans);
 }
 
-.gallery.section {
-  padding-block: 56px 64px;
-}
-
 .gallery__board {
   display: grid;
   grid-template-columns: 1.15fr 0.92fr 0.92fr 0.88fr 0.98fr;
@@ -390,10 +386,6 @@
 }
 
 @media (max-width: 767px) {
-  .gallery.section {
-    padding-block: 36px 44px;
-  }
-
   .gallery__board {
     grid-template-columns: 1fr 1fr;
     grid-template-rows: auto auto 148px 128px 128px 108px 108px;

@@ -15,10 +15,6 @@
   font-family: var(--sans);
 }
 
-.safari.section {
-  padding-block: 64px;
-}
-
 .safari__scene {
   position: absolute;
   inset: 0;
@@ -423,10 +419,6 @@
 }
 
 @media (max-width: 1024px) {
-  .safari.section {
-    padding-block: 52px;
-  }
-
   .safari__header {
     align-items: start;
     flex-direction: column;
@@ -439,10 +431,6 @@
 }
 
 @media (max-width: 767px) {
-  .safari.section {
-    padding-block: 40px 48px;
-  }
-
   .safari__wrap {
     gap: 16px;
   }

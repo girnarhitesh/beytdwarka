@@ -14,10 +14,6 @@
   font-family: var(--sans);
 }
 
-.cta.section {
-  padding-block: 48px 0;
-}
-
 .cta__glow {
   position: absolute;
   z-index: 0;
@@ -219,10 +215,6 @@
 }
 
 @media (max-width: 900px) {
-  .cta.section {
-    padding-block: 40px 0;
-  }
-
   .cta__shot {
     width: clamp(78px, 14vw, 112px);
     margin: 0 -10px;
@@ -230,10 +222,6 @@
 }
 
 @media (max-width: 640px) {
-  .cta.section {
-    padding-block: 32px 0;
-  }
-
   .cta__fan {
     margin-top: 22px;
     padding-bottom: 16px;

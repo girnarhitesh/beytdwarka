@@ -114,10 +114,6 @@
   gap: 10px;
 }
 
-.gallery-wall.section {
-  padding-block: 28px 8px;
-}
-
 .gallery-wall__board {
   display: grid;
   grid-template-columns: repeat(6, minmax(0, 1fr));

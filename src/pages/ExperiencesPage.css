@@ -127,10 +127,6 @@
   gap: 10px;
 }
 
-.exp-page .experiences.section {
-  padding-top: 56px;
-}
-
 @media (max-width: 900px) {
   .exp-page__copy {
     flex-direction: column;
@@ -142,9 +138,5 @@
 @media (max-width: 640px) {
   .exp-page__hero {
     min-height: 32vh;
-  }
-
-  .exp-page .experiences.section {
-    padding-top: 40px;
   }
 }

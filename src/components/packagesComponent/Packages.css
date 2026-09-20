@@ -634,10 +634,6 @@
 }
 
 @media (max-width: 767px) {
-  .packages.section {
-    padding-block: 40px 48px;
-  }
-
   .packages__header {
     flex-direction: column;
     align-items: stretch;

@@ -111,10 +111,6 @@
   color: rgb(246 243 236 / 0.82);
 }
 
-.pkg-page .packages.section {
-  padding-top: 56px;
-}
-
 @media (max-width: 900px) {
   .pkg-page__copy {
     flex-direction: column;

@@ -64,7 +64,7 @@ function Cta() {
       }
 
   return (
-    <section className="cta section" id="book" aria-labelledby="cta-title">
+    <section className="cta section section--flush" id="book" aria-labelledby="cta-title">
       <div className="cta__glow cta__glow--teal" aria-hidden="true" />
       <div className="cta__glow cta__glow--sand" aria-hidden="true" />
 

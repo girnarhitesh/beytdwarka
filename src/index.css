@@ -19,7 +19,7 @@
 
   --page-max: 1300px;
   --page-gutter: 20px;
-  --page-pad-y: 96px;
+  --page-pad-y: clamp(36px, 5.5vh, 56px);
 
   --text-h1: clamp(40px, 5vw, 64px);
   --text-h2: clamp(32px, 3.5vw, 44px);
@@ -70,14 +70,12 @@
   @media (max-width: 1024px) {
     font-size: 16px;
     --page-gutter: 28px;
-    --page-pad-y: 72px;
   }
 }
 
 @media (max-width: 640px) {
   :root {
     --page-gutter: 20px;
-    --page-pad-y: 56px;
   }
 }
 
@@ -145,6 +143,10 @@ body {
 
 .section {
   padding-block: var(--page-pad-y);
+}
+
+.section--flush {
+  padding-bottom: 0;
 }
 
 .radius {
