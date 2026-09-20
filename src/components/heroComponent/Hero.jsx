@@ -286,7 +286,7 @@ function HeroScene({ id, src, position, on, prefersReducedMotion, mediaX, mediaY
       initial={false}
       animate={{
         opacity: on ? 1 : 0,
-        scale: on ? 1.06 : 1.12,
+        scale: on ? 1.03 : 1.07,
       }}
       transition={{ duration: 1.15, ease: EASE }}
       style={{
